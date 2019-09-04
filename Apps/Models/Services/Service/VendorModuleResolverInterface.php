@@ -1,0 +1,34 @@
+<?php
+namespace Phalconry\Services\Service;
+
+
+interface VendorModuleResolverInterface
+{
+    const DIRECTION_INBOUND = 0;
+    const DIRECTION_OUTBOUND = 1;
+
+    const MODULE_INBOUND_QUERYORDERLIST = 'QueryOrderList';
+    const MODULE_INBOUND_CANCELORDERBYORDERNO = 'CancelOrderByOrderNo';
+    const MODULE_INBOUND_CHANGEDELIVERYTIMETBYORDERNO = 'ChangeDeliveryTimeByOrderNo';
+    const MODULE_INBOUND_CHANGEORDERSTATUSTOCONFIRMBYORDERNO = 'ChangeOrderStatusToConfirmByOrderNo';
+    const MODULE_INBOUND_CHANGEORDERSTATUSTOCOMPLETEBYORDERNO = 'ChangeOrderStatusToCompleteByOrderNo';
+    const MODULE_INBOUND_CHANGEPRODUCTSTATUSTOONSALEBYPRODUCTID = 'ChangeProductStatusToOnSaleByProductID';
+    const MODULE_INBOUND_CHANGEPRODUCTOPTIONSTATUSTOONSALEBYPRODUCTOPTIONID = 'ChangeProductOptionStatusToOnSaleByProductOptionID';
+    const MODULE_INBOUND_CHANGEPRODUCTSTATUSTOSOLDOUTBYPRODUCTID = 'ChangeProductStatusToSoldOutByProductID';
+    const MODULE_INBOUND_CHANGEPRODUCTOPTIONSTATUSTOSOLDOUTBYPRODUCTOPTIONID = 'ChangeProductOptionStatusToSoldOutByProductOptionID';
+    const MODULE_INBOUND_CHANGESTORESTATUSTOOPENBYSTOREID = 'ChangeStoreStatusToOpenByStoreID';
+    const MODULE_INBOUND_CHANGESTORESTATUSTOCLOSEBYSTOREID = 'ChangeStoreStatusToCloseByStoreID';
+    const MODULE_INBOUND_USETICKETBYORDERNOTICKETCODE = 'UseTicketByOrderNoTicketCode';
+    const MODULE_INBOUND_QUERYTICKETBYORDERNOTICKETCODE = 'QueryTicketByOrderNoTicketCode';
+    const MODULE_INBOUND_CANCELTICKETBYORDERNOTICKETCODE = 'CancelTicketByOrderNoTicketCode';
+
+    const MODULE_OUTBOUND_ORDER = 'Order';
+    const MODULE_OUTBOUND_CANCELORDERBYORDERNO = 'CancelOrderByOrderNo';
+    const MODULE_OUTBOUND_CANCELORDERBYORDERID = 'CancelOrderByOrderID';
+    const MODULE_OUTBOUND_CANCELTICKETBYTICKETCODE = 'CancelTicketByTicketCode';
+    const MODULE_OUTBOUND_QUERYORDERBYORDERNO = 'QueryOrderByOrderNo';
+    const MODULE_OUTBOUND_QUERYORDERBYORDERID = 'QueryOrderByOrderID';
+    const MODULE_OUTBOUND_TEXT = 'Text';
+
+    public function resolve(string $vendorCode, int $direction, string $moduleName);
+}
